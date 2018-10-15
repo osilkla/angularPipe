@@ -1,19 +1,18 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'appsbSort'
+  name: 'myProjectSort'
 })
 export class ArraySortPipe implements PipeTransform {
   transform(array: any[], field: string): any[] {
-    const arrayR: any[] = array || [];
+    const arraySorted: any[] = array || [];
     if (!field || field === '') {
-      return arrayR;
+      return arraySorted;
     }
     const prop = field.split('.');
-    const len = prop.length;
-    arrayR.sort((a: any, b: any) => {
+    arraySorted.sort((a: any, b: any) => {
       let i = 0;
-      while (i < len) {
+      while (i < prop.length) {
         a = a[prop[i]] !== undefined ? a[prop[i]] : null;
         b = b[prop[i]] !== undefined ? b[prop[i]] : null;
         i++;
@@ -28,6 +27,6 @@ export class ArraySortPipe implements PipeTransform {
           }
         }
     });
-    return arrayR;
+    return arraySorted;
   }
 }

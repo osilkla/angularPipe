@@ -1,1 +1,1 @@
-# angularPipe
+# [angular] orderbyPipe
